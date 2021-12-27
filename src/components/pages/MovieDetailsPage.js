@@ -9,7 +9,7 @@ import Reviews from '../Reviews'
 class MovieDetailsPage extends Component {
   state = {
     // movie: null,
-    poster: '',
+    poster_path: '',
     genres: [],
     overview: null,
     title: null,
@@ -34,8 +34,8 @@ class MovieDetailsPage extends Component {
 
   render() {
     // console.log(this.props.match.params.movieId)
-    const { poster, genres, overview, title, id } = this.state
-    console.log(poster)
+    const { poster_path, genres, overview, title, id } = this.state
+    console.log(poster_path)
     return (
       <>
         {/* <h1>Ид фильма: {this.props.match.params.movieId}</h1> */}

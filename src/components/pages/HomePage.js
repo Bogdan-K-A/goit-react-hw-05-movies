@@ -21,7 +21,7 @@ export class HomePage extends Component {
 
   render() {
     // console.log(this.props.match.url)
-    const currentUrl = this.props.match.url
+    // const currentUrl = this.props.match.url
     const { results } = this.state
     return (
       <>
