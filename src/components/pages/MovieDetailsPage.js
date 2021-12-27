@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import Cast from '../Cast'
 import Reviews from '../Reviews'
-import mapperApi from '../Utils/mapper'
+// import mapperApi from '../Utils/mapper'
 // import PropTypes from 'prop-types'
 
 class MovieDetailsPage extends Component {
@@ -41,7 +41,9 @@ class MovieDetailsPage extends Component {
         {/* <h1>Ид фильма: {this.props.match.params.movieId}</h1> */}
         <h1>Cтраница с детальной информацией о кинофильме.</h1>
         <h1> {title}</h1>
-        <img src={poster} alt={title} />
+
+        <img src={`https://image.tmdb.org/w500${poster_path}`} alt={title} />
+
         <h2>Описание:</h2>
         <p> {overview}</p>
         <h2>Жанры: </h2>
