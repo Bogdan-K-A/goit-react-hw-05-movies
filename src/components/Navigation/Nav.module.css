@@ -6,3 +6,20 @@
 .NavLink_Active {
   color: palevioletred;
 }
+
+.Text {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.Text li {
+  margin-right: 50px;
+}

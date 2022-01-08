@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 import { NavLink, useLocation } from 'react-router-dom'
+import s from './MovieList.module.css'
 
 const MovieList = ({ movies }) => {
   const location = useLocation()
   return (
-    <ul>
+    <ul className={s.Galery}>
       {movies &&
         movies.map(({ title, id, poster_path }) => (
           <li key={id}>
@@ -27,6 +28,14 @@ const MovieList = ({ movies }) => {
   )
 }
 
-MovieList.propTypes = {}
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+}
 
 export default MovieList

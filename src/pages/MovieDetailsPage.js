@@ -46,6 +46,4 @@ function MovieDetailsPage() {
   )
 }
 
-// MovieDetailsPage.propTypes = {}
-
 export default MovieDetailsPage

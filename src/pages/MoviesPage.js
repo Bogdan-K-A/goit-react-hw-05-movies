@@ -4,7 +4,7 @@ import { useLocation } from 'react-router'
 import SearchMovies from '../components/SearchMovies/SearchMovies'
 import MovieList from '../components/MovieList/MovieList'
 import * as fetchApi from '../service/api'
-// import PropTypes from 'prop-types'
+
 console.log(queryString)
 
 function MoviesPage() {
@@ -20,7 +20,7 @@ function MoviesPage() {
         .movieSearch(query)
         .then(({ results }) => {
           if (results.length === 0) {
-            alert('The answer is empty')
+            alert(`Аor this request ${query} no results were found`)
             return
           }
           setMovies(results)
@@ -42,9 +42,5 @@ function MoviesPage() {
     </>
   )
 }
-
-// MoviesPage.propTypes = {
-
-// }
 
 export default MoviesPage

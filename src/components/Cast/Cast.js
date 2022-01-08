@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import * as fetchApi from '../../service/api'
-// import PropTypes from 'prop-types'
 import { useParams } from 'react-router'
 import defaultImg from '../img/no-photo.jpg'
+import s from './Cast.module.css'
 
 function Cast() {
   const { movieId } = useParams()
@@ -20,11 +20,12 @@ function Cast() {
   return (
     <>
       {cast?.length > 0 ? (
-        <ul>
+        <ul className={s.CastGalery}>
           {cast.map(({ id, name, profile_path, character }) => {
             return (
               <li key={id}>
                 <img
+                  className={s.CastImg}
                   src={
                     profile_path
                       ? `https://image.tmdb.org/t/p/w500${profile_path}`
@@ -32,8 +33,14 @@ function Cast() {
                   }
                   alt={name}
                 />
-                <p>Name: {name}</p>
-                <p>Character: {character}</p>
+                <p>
+                  <span className={s.CastText}>Name:</span>
+                  {name}
+                </p>
+                <p>
+                  <span className={s.CastText}>Character:</span>
+                  {character}
+                </p>
               </li>
             )
           })}
@@ -44,9 +51,5 @@ function Cast() {
     </>
   )
 }
-
-// Cast.propTypes = {
-
-// }
 
 export default Cast

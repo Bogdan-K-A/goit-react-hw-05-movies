@@ -3,8 +3,8 @@ import s from './Nav.module.css'
 
 export const Nav = () => {
   return (
-    <>
-      <ul>
+    <div>
+      <ul className={s.Text}>
         <li>
           <NavLink
             exact
@@ -25,6 +25,6 @@ export const Nav = () => {
           </NavLink>
         </li>
       </ul>
-    </>
+    </div>
   )
 }

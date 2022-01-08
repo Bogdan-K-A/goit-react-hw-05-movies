@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+
 import * as fetchApi from '../../service/api'
 import { useParams } from 'react-router'
+import s from './Reviews.module.css'
+
 const Reviews = () => {
   const { movieId } = useParams()
   const [reviews, setReviews] = useState()
@@ -19,22 +21,18 @@ const Reviews = () => {
         <ul>
           {reviews.map(({ id, author, content }) => {
             return (
-              <li key={id}>
-                <p>Author: {author}</p>
+              <li className={s.ReviewsItem} key={id}>
+                <p className={s.ReviewsTextContent}>Author: {author}</p>
                 <p>{content}</p>
               </li>
             )
           })}
         </ul>
       ) : (
-        <p>'We don`t have any Reviews for this movie.'</p>
+        <p>We don`t have any Reviews for this movie.</p>
       )}
     </div>
   )
 }
-
-// Reviews.propTypes = {
-
-// }
 
 export default Reviews

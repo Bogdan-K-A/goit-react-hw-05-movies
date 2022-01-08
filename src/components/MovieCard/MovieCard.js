@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import {
   NavLink,
   useHistory,
@@ -6,6 +6,8 @@ import {
   useRouteMatch,
 } from 'react-router-dom'
 import defaultImg from '../img/no-photo.jpg'
+import { Container } from '../container/Container'
+import s from './MovieCard.module.css'
 
 function MovieCard({ movie }) {
   const {
@@ -29,13 +31,14 @@ function MovieCard({ movie }) {
   }
 
   return (
-    <>
-      <button type="button" onClick={handelGoBack}>
+    <Container>
+      <button className={s.Btn} type="button" onClick={handelGoBack}>
         Go back
       </button>
 
-      <div>
+      <div className={s.MovieCard}>
         <img
+          className={s.MoviePoster}
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -48,9 +51,11 @@ function MovieCard({ movie }) {
             {title}
             {release_date ? `(${release_year})` : ''}
           </h2>
-          <p>User score:{vote_average * 10}%</p>
-          <p>Overview: {overview}</p>
-          <p>Genres: </p>
+          <p className={s.TextContent}>User score: {vote_average * 10}%</p>
+          <p>
+            <span className={s.TextContent}>Overview:</span> {overview}
+          </p>
+          <p className={s.TextContent}>Genres: </p>
           <p>
             {genres.map(({ id, name }) => (
               <span key={id}>{name}</span>
@@ -60,8 +65,8 @@ function MovieCard({ movie }) {
       </div>
       <hr />
       <div>
-        <h3>Additional information</h3>
-        <ul>
+        <h3 className={s.Title}>Additional information</h3>
+        <ul className={s.CardText}>
           <li>
             <NavLink
               to={{
@@ -84,8 +89,24 @@ function MovieCard({ movie }) {
           </li>
         </ul>
       </div>
-    </>
+    </Container>
   )
+}
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+  }).isRequired,
 }
 
 export default MovieCard

@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
 import { useHistory } from 'react-router'
+import s from './SearchMovies.module.css'
 
 const SearchMovies = () => {
   const [query, setQuery] = useState('')
@@ -16,14 +16,15 @@ const SearchMovies = () => {
     history.push({ ...history.location, search: `?query=${query}` })
   }
   return (
-    <>
-      <form onSubmit={handelSubmit}>
-        <button type="submit">
+    <div className={s.Searchbar}>
+      <form className={s.SearchForm} onSubmit={handelSubmit}>
+        <button className={s.SearchFormButton} type="submit">
           {/* <ImSearch style={{ width: 20, height: 20 }} /> */}
           <span>Search</span>
         </button>
 
         <input
+          className={s.SearchFormInput}
           type="text"
           autoComplete="off"
           autoFocus
@@ -32,10 +33,8 @@ const SearchMovies = () => {
           onChange={handelChange}
         />
       </form>
-    </>
+    </div>
   )
 }
-
-SearchMovies.propTypes = {}
 
 export default SearchMovies

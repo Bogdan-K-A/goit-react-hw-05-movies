@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import MovieList from '../components/MovieList/MovieList'
-
 import * as fetchApi from '../service/api'
+import s from '../components/MovieList/MovieList.module.css'
 
 // import PropTypes from 'prop-types'
 
@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Trending title</h1>
+      <h1 className={s.Title}>Trending title</h1>
       <MovieList movies={movies} />
     </>
   )
