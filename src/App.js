@@ -1,8 +1,9 @@
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import HomePage from './components/pages/HomePage'
-import MoviesPage from './components/pages/MoviesPage'
-import MovieDetailsPage from './components/pages/MovieDetailsPage'
-import NotFoundPage from './components/pages/NotFoundPage'
+import HomePage from './pages/HomePage'
+import MoviesPage from './pages/MoviesPage'
+import MovieDetailsPage from './pages/MovieDetailsPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 import { Nav } from './components/Navigation/Nav'
 
