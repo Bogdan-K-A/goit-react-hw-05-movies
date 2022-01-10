@@ -11,3 +11,9 @@
 .ReviewsItem {
   margin-bottom: 15px;
 }
+
+.ReviewsContainer {
+  width: 1740px;
+  margin-left: auto;
+  margin-right: auto;
+}
